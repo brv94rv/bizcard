@@ -6,161 +6,167 @@
   <title>Rukshatt Venai — Digital Card</title>
   
   <style>
+    /* ========================================================
+       CONCRETE BRUTALIST & INDUSTRIAL ORANGE DESIGN SYSTEM
+       ======================================================== */
     :root {
-      --bg: #cbcfd4;
-      --card-shell: #e4e7eb;
-      --card-border: #b8bcc2;
+      --bg-concrete: #cbd0d6;
+      --card-chassis: #dee2e6;
+      --card-border: #b8bdc4;
       
-      --text-main: #0f1216;
-      --text-sub: #3d444d;
-      --text-muted: #6e7682;
+      --text-pure: #111417;
+      --text-sub: #41474e;
+      --text-dim: #6e7681;
 
-      --row-bg: #ffffff;
-      --row-border: #cfd4dc;
+      --tile-bg: #ffffff;
+      --tile-border: #d0d5dc;
+      --tile-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      --tile-hover-shadow: 0 6px 14px rgba(0, 0, 0, 0.09);
 
-      --orange: #ff5500;
-      --orange-dark: #e04b00;
-      --orange-glow: rgba(255, 85, 0, 0.28);
+      --orange-btn: #ff5500;
+      --orange-btn-active: #e04b00;
+      --orange-glow: 0 6px 20px rgba(255, 85, 0, 0.32);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      background-color: var(--bg);
+      background-color: var(--bg-concrete);
       background-image: 
-        radial-gradient(circle at 50% 15%, #e1e4e8 0%, transparent 60%),
-        radial-gradient(circle at 50% 85%, #b6bbc2 0%, transparent 70%);
-      color: var(--text-main);
+        radial-gradient(circle at 50% 10%, #eef0f3 0%, transparent 65%),
+        radial-gradient(circle at 50% 90%, #b8bec6 0%, transparent 70%);
+      color: var(--text-pure);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 2.5rem 1.25rem;
+      padding: 2.5rem 1rem 3rem;
     }
 
-    /* SOLID ARCHITECTURAL CHASSIS */
-    .card-shell {
+    /* CARD CHASSIS (Enforces Card Geometry On Any Screen) */
+    .chassis {
       width: 100%;
-      max-width: 375px;
-      background: var(--card-shell);
+      max-width: 385px;
+      background: var(--card-chassis);
       border: 1px solid var(--card-border);
       border-radius: 28px;
-      padding: 2.25rem 1.4rem;
+      padding: 2.25rem 1.35rem;
       box-shadow: 
-        0 20px 45px rgba(0, 0, 0, 0.12),
-        inset 0 1px 1px rgba(255, 255, 255, 0.6);
+        0 24px 50px rgba(0, 0, 0, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.7);
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    /* METALLIC BRUTALIST MEDALLION */
-    .emblem {
-      width: 72px;
-      height: 72px;
+    /* MACHINED WATCH-MEDALLION (EMBLEM) */
+    .medallion-svg {
+      width: 80px;
+      height: 80px;
       margin-bottom: 1.25rem;
-      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
     }
 
-    /* TYPOGRAPHY */
+    /* TITLES & HEADERS */
     .name {
-      font-size: 1.45rem;
+      font-size: 1.5rem;
       font-weight: 700;
       letter-spacing: -0.025em;
-      color: var(--text-main);
-      margin-bottom: 0.15rem;
+      color: var(--text-pure);
       text-align: center;
+      margin-bottom: 0.15rem;
     }
 
-    .org {
+    .company {
       font-size: 1.05rem;
       font-weight: 600;
-      color: var(--text-main);
-      margin-bottom: 0.2rem;
+      color: var(--text-pure);
       text-align: center;
+      margin-bottom: 0.2rem;
     }
 
-    .title {
-      font-size: 0.82rem;
+    .role {
+      font-size: 0.85rem;
       font-weight: 500;
       color: var(--text-sub);
-      margin-bottom: 1.5rem;
       text-align: center;
+      margin-bottom: 1.45rem;
     }
 
     /* INDUSTRIAL ORANGE CTA */
-    .btn-save {
+    .btn-save-contact {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      background: var(--orange);
-      color: #ffffff;
+      background: var(--orange-btn);
+      color: #ffffff !important;
       text-decoration: none;
-      padding: 0.8rem 1.8rem;
+      padding: 0.82rem 1.85rem;
       border-radius: 999px;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 600;
       letter-spacing: -0.01em;
-      box-shadow: 0 6px 18px var(--orange-glow);
+      box-shadow: var(--orange-glow);
       border: 1px solid rgba(255, 255, 255, 0.25);
       transition: transform 0.15s ease, background-color 0.2s ease;
       margin-bottom: 1.75rem;
     }
 
-    .btn-save:active {
+    .btn-save-contact:active {
       transform: scale(0.97);
-      background-color: var(--orange-dark);
+      background: var(--orange-btn-active);
     }
 
-    .btn-save svg {
-      width: 15px;
-      height: 15px;
+    .btn-save-contact svg {
+      width: 16px;
+      height: 16px;
+      stroke: #ffffff;
       fill: none;
-      stroke: currentColor;
       stroke-width: 2.4;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
-    /* LINEAR ACTION CARDS */
-    .action-stack {
+    /* ACTION TILES */
+    .tile-stack {
       width: 100%;
       display: flex;
       flex-direction: column;
       gap: 0.65rem;
     }
 
-    .action-tile {
+    .tile {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0.95rem 1.15rem;
-      background: var(--row-bg);
-      border: 1px solid var(--row-border);
+      background: var(--tile-bg);
+      border: 1px solid var(--tile-border);
       border-radius: 14px;
       text-decoration: none;
-      color: var(--text-main);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      color: var(--text-pure);
+      box-shadow: var(--tile-shadow);
       transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .action-tile:hover, .action-tile:active {
+    .tile:hover, .tile:active {
       transform: translateY(-1px);
       border-color: #9aa2ad;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: var(--tile-hover-shadow);
     }
 
     .tile-left {
       display: flex;
       align-items: center;
       gap: 0.85rem;
+      min-width: 0;
     }
 
     .tile-icon {
@@ -169,64 +175,68 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-sub);
       flex-shrink: 0;
+      color: var(--text-sub);
     }
 
     .tile-icon svg {
       width: 100%;
       height: 100%;
+      stroke: var(--text-sub);
       fill: none;
-      stroke: currentColor;
       stroke-width: 1.9;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
-    .tile-text {
+    .tile-content {
       display: flex;
       align-items: baseline;
       gap: 0.45rem;
-      flex-wrap: wrap;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .tile-title {
+    .tile-label {
       font-size: 0.92rem;
       font-weight: 600;
-      color: var(--text-main);
+      color: var(--text-pure);
     }
 
-    .tile-detail {
+    .tile-sub {
       font-size: 0.82rem;
-      color: var(--text-muted);
+      color: var(--text-dim);
       font-weight: 400;
     }
 
-    .tile-arrow {
+    .tile-chevron {
       color: #9aa2ad;
-      font-size: 1rem;
-      font-weight: 400;
+      font-size: 1.1rem;
+      line-height: 1;
+      padding-left: 0.5rem;
+      flex-shrink: 0;
     }
 
     /* FOOTER */
-    .card-footer {
-      margin-top: 1.75rem;
+    .footer {
+      margin-top: 1.85rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.35rem;
     }
 
     .footer-status {
       font-size: 0.65rem;
-      color: var(--text-muted);
-      letter-spacing: 0.12em;
+      color: var(--text-dim);
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: 600;
     }
 
-    .footer-brand {
-      font-size: 0.75rem;
+    .footer-signature {
+      font-size: 0.78rem;
       color: var(--text-sub);
       letter-spacing: 0.08em;
       font-weight: 600;
@@ -235,131 +245,139 @@
 </head>
 <body>
 
-  <div class="card-shell">
+  <div class="chassis">
     
-    <!-- Precision Machined Gunmetal Emblem (Vector Rendered) -->
-    <svg class="emblem" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- HIGH-PRECISION MACHINED GUNMETAL EMBLEM (Inline Vector) -->
+    <svg class="medallion-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="bevelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <!-- Bezel Metallic Finish -->
+        <linearGradient id="bezelOuter" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#4a525d"/>
-          <stop offset="50%" stop-color="#23272d"/>
-          <stop offset="100%" stop-color="#14171a"/>
+          <stop offset="35%" stop-color="#2c3138"/>
+          <stop offset="70%" stop-color="#1e2227"/>
+          <stop offset="100%" stop-color="#121417"/>
         </linearGradient>
-        <linearGradient id="innerPlate" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#2e343b"/>
-          <stop offset="100%" stop-color="#1b1e22"/>
-        </linearGradient>
-        <linearGradient id="textGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#f5f7fa"/>
-          <stop offset="100%" stop-color="#a6afb8"/>
+
+        <!-- Recessed Center Disc -->
+        <radialGradient id="discCenter" cx="50%" cy="40%" r="50%">
+          <stop offset="0%" stop-color="#343a42"/>
+          <stop offset="75%" stop-color="#202428"/>
+          <stop offset="100%" stop-color="#141619"/>
+        </radialGradient>
+
+        <!-- Metallic Lettering Gradient -->
+        <linearGradient id="metalText" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="50%" stop-color="#d4d9de"/>
+          <stop offset="100%" stop-color="#8a929b"/>
         </linearGradient>
       </defs>
-      
-      <!-- Outer Machined Bezel -->
-      <circle cx="50" cy="50" r="48" fill="url(#bevelGrad)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+
+      <!-- Outer Beveled Watch Case Ring -->
+      <circle cx="50" cy="50" r="48" fill="url(#bezelOuter)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
       <!-- Inner Stepped Track -->
-      <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(0,0,0,0.6)" stroke-width="1"/>
-      <circle cx="50" cy="50" r="40" fill="url(#innerPlate)"/>
-      
-      <!-- Precision RVR Monogram -->
+      <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+      <circle cx="50" cy="50" r="39" fill="url(#discCenter)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+
+      <!-- Embossed Monogram -->
       <text x="50" y="58" 
             text-anchor="middle" 
             font-family="'Playfair Display', Georgia, 'Times New Roman', serif" 
-            font-size="24" 
+            font-size="23" 
             font-weight="700" 
-            letter-spacing="1.5" 
-            fill="url(#textGrad)"
-            style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));">
+            letter-spacing="2" 
+            fill="url(#metalText)"
+            style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.9));">
         RVR
       </text>
     </svg>
 
     <!-- Identity -->
     <h1 class="name">Rukshatt Venai</h1>
-    <div class="org">Boost</div>
-    <div class="title">Commercial Strategy & Payments</div>
+    <div class="company">Boost</div>
+    <div class="role">Commercial Strategy & Payments</div>
 
     <!-- CTA Button -->
-    <a id="save-vcard-btn" class="btn-save" href="#" download="Rukshatt_Venai.vcf">
+    <a id="save-vcard-btn" class="btn-save-contact" href="#" download="Rukshatt_Venai.vcf">
       <span>Save Contact</span>
       <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
     </a>
 
-    <!-- Action Tiles -->
-    <div class="action-stack">
+    <!-- Action Stack -->
+    <div class="tile-stack">
       
       <!-- Mobile Phone -->
-      <a class="action-tile" href="tel:+60182804899">
+      <a class="tile" href="tel:+60182804899">
         <div class="tile-left">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
           </div>
-          <div class="tile-text">
-            <span class="tile-title">Mobile</span>
-            <span class="tile-detail">+60 18-280 4899</span>
+          <div class="tile-content">
+            <span class="tile-label">Mobile</span>
+            <span class="tile-sub">+60 18-280 4899</span>
           </div>
         </div>
-        <span class="tile-arrow">›</span>
+        <span class="tile-chevron">›</span>
       </a>
 
       <!-- WhatsApp Direct -->
-      <a class="action-tile" href="https://wa.me/60182804899?text=Hi%20Rukshatt,%20connecting%20via%20your%20digital%20card." target="_blank" rel="noopener">
+      <a class="tile" href="https://wa.me/60182804899?text=Hi%20Rukshatt,%20connecting%20via%20your%20digital%20card." target="_blank" rel="noopener">
         <div class="tile-left">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
           </div>
-          <div class="tile-text">
-            <span class="tile-title">WhatsApp</span>
+          <div class="tile-content">
+            <span class="tile-label">WhatsApp</span>
           </div>
         </div>
-        <span class="tile-arrow">›</span>
+        <span class="tile-chevron">›</span>
       </a>
 
       <!-- Work Email -->
-      <a class="action-tile" href="mailto:rukshatt.ravindran@myboost.co">
+      <a class="tile" href="mailto:rukshatt.ravindran@myboost.co">
         <div class="tile-left">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </div>
-          <div class="tile-text">
-            <span class="tile-title">Work Email</span>
+          <div class="tile-content">
+            <span class="tile-label">Work Email</span>
           </div>
         </div>
-        <span class="tile-arrow">›</span>
+        <span class="tile-chevron">›</span>
       </a>
 
       <!-- Personal Email -->
-      <a class="action-tile" href="mailto:rukshatt.v@outlook.com">
+      <a class="tile" href="mailto:rukshatt.v@outlook.com">
         <div class="tile-left">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </div>
-          <div class="tile-text">
-            <span class="tile-title">Personal Email</span>
+          <div class="tile-content">
+            <span class="tile-label">Personal Email</span>
           </div>
         </div>
-        <span class="tile-arrow">›</span>
+        <span class="tile-chevron">›</span>
       </a>
 
-      <!-- LinkedIn (Explicit SVG Icon & Text) -->
-      <a class="action-tile" href="https://www.linkedin.com/in/rravin/" target="_blank" rel="noopener">
+      <!-- LinkedIn -->
+      <a class="tile" href="https://www.linkedin.com/in/rravin/" target="_blank" rel="noopener">
         <div class="tile-left">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
           </div>
-          <div class="tile-text">
-            <span class="tile-title">LinkedIn</span>
+          <div class="tile-content">
+            <span class="tile-label">LinkedIn</span>
           </div>
         </div>
-        <span class="tile-arrow">›</span>
+        <span class="tile-chevron">›</span>
       </a>
 
     </div>
 
     <!-- Footer -->
-    <div class="card-footer">
-      <span class="footer-status">NFC TAP ACTIVE</span>
-      <span class="footer-brand">KLens</span>
+    <div class="footer">
+      <div class="footer-status">NFC TAP ACTIVE</div>
+      <div class="footer-signature">KLens</div>
     </div>
 
   </div>
