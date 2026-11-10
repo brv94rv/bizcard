@@ -6,23 +6,30 @@
   <title>Rukshatt Venai — Digital Card</title>
   
   <style>
+    /* 🏗️ CONCRETE BRUTALIST & INDUSTRIAL ORANGE PALETTE */
     :root {
-      --bg-surface: #f7f5f0;
-      --card-bg: #fdfcf9;
-      --card-border: rgba(0, 0, 0, 0.06);
+      --bg-surface: #d8dbdf;
+      --card-bg: #e2e5e9;
+      --card-border: rgba(0, 0, 0, 0.08);
       
-      --text-primary: #191c1e;
-      --text-secondary: #4a5056;
-      --text-muted: #7d848c;
+      --text-primary: #121518;
+      --text-secondary: #3b4249;
+      --text-muted: #6b737d;
 
       --row-bg: #ffffff;
-      --row-border: rgba(0, 0, 0, 0.07);
-      --row-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      --row-shadow-hover: 0 4px 14px rgba(0, 0, 0, 0.08);
+      --row-border: rgba(0, 0, 0, 0.08);
+      --row-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      --row-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.09);
 
-      --pill-bg: #16181b;
-      --pill-text: #ffffff;
-      --pill-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+      /* Industrial Safety Orange */
+      --orange-accent: #ff5500;
+      --orange-hover: #e04b00;
+      --orange-shadow: 0 6px 20px rgba(255, 85, 0, 0.35);
+
+      /* Machined Gunmetal Seal */
+      --seal-base: #2a2e33;
+      --seal-metal-light: #454a52;
+      --seal-metal-dark: #1e2226;
     }
 
     * {
@@ -36,8 +43,8 @@
     body {
       background-color: var(--bg-surface);
       background-image: 
-        radial-gradient(at 50% 0%, #ffffff 0px, transparent 75%),
-        radial-gradient(at 50% 100%, #eeebe2 0px, transparent 80%);
+        radial-gradient(at 50% 0%, #eceef1 0px, transparent 75%),
+        radial-gradient(at 50% 100%, #caced4 0px, transparent 80%);
       color: var(--text-primary);
       min-height: 100vh;
       display: flex;
@@ -54,18 +61,18 @@
       align-items: center;
     }
 
-    /* RVR EMBOSSED SEAL */
+    /* MACHINED GUNMETAL RVR SEAL */
     .seal-wrapper {
       position: relative;
       width: 76px;
       height: 76px;
       border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #ffffff 0%, #ebe7dc 100%);
-      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: radial-gradient(circle at 35% 35%, var(--seal-metal-light) 0%, var(--seal-metal-dark) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: 
-        inset 0 2px 4px rgba(255, 255, 255, 0.9),
-        inset 0 -2px 4px rgba(0, 0, 0, 0.08),
-        0 8px 18px rgba(0, 0, 0, 0.07);
+        inset 0 1px 2px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.5),
+        0 8px 20px rgba(0, 0, 0, 0.18);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -77,7 +84,7 @@
       width: 66px;
       height: 66px;
       border-radius: 50%;
-      border: 1px solid rgba(0, 0, 0, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .seal-monogram {
@@ -85,10 +92,10 @@
       font-size: 1.45rem;
       font-weight: 700;
       letter-spacing: 0.04em;
-      color: #2b2e34;
+      color: #e5e9ee;
       text-shadow: 
-        1px 1px 1px rgba(255, 255, 255, 0.9),
-        -1px -1px 1px rgba(0, 0, 0, 0.35);
+        1px 1px 1px rgba(0, 0, 0, 0.8),
+        -1px -1px 1px rgba(255, 255, 255, 0.2);
       position: relative;
       z-index: 2;
     }
@@ -113,35 +120,35 @@
 
     .role {
       font-size: 0.85rem;
-      font-weight: 400;
+      font-weight: 500;
       color: var(--text-secondary);
       margin-bottom: 1.4rem;
       text-align: center;
     }
 
-    /* SAVE CONTACT PILL */
+    /* INDUSTRIAL ORANGE PILL CTA */
     .btn-save {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.45rem;
-      background: var(--pill-bg);
-      color: var(--pill-text);
+      background: var(--orange-accent);
+      color: #ffffff;
       text-decoration: none;
-      padding: 0.75rem 1.6rem;
+      padding: 0.78rem 1.7rem;
       border-radius: 999px;
-      font-size: 0.88rem;
-      font-weight: 500;
+      font-size: 0.9rem;
+      font-weight: 600;
       letter-spacing: -0.01em;
-      box-shadow: var(--pill-shadow);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--orange-shadow);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       transition: transform 0.15s ease, background-color 0.2s ease;
       margin-bottom: 1.75rem;
     }
 
     .btn-save:active {
       transform: scale(0.97);
-      background-color: #050607;
+      background-color: var(--orange-hover);
     }
 
     .btn-save svg {
@@ -149,12 +156,12 @@
       height: 15px;
       fill: none;
       stroke: currentColor;
-      stroke-width: 2.2;
+      stroke-width: 2.4;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
-    /* LINEAR ACTION CARDS */
+    /* CRISP WHITE ACTION CARDS */
     .actions-list {
       width: 100%;
       display: flex;
@@ -179,7 +186,7 @@
     .action-row:hover, .action-row:active {
       transform: translateY(-1px);
       box-shadow: var(--row-shadow-hover);
-      border-color: rgba(0, 0, 0, 0.14);
+      border-color: rgba(0, 0, 0, 0.16);
     }
 
     .action-left {
@@ -217,7 +224,7 @@
 
     .action-title {
       font-size: 0.92rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-primary);
     }
 
@@ -233,14 +240,28 @@
       font-weight: 600;
     }
 
-    /* FOOTER */
-    .footer {
+    /* FOOTER METADATA */
+    .footer-group {
       margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nfc-tag {
       font-size: 0.68rem;
       color: var(--text-muted);
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      font-weight: 500;
+      font-weight: 600;
+    }
+
+    .brand-subtext {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.08em;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -248,24 +269,24 @@
 
   <div class="container">
     
-    <!-- Understated RVR Medallion -->
+    <!-- Machined Gunmetal RVR Medallion -->
     <div class="seal-wrapper">
       <div class="seal-ring"></div>
       <div class="seal-monogram">RVR</div>
     </div>
 
-    <!-- Identity -->
+    <!-- Identity Header -->
     <h1 class="name">Rukshatt Venai</h1>
     <div class="company">Boost</div>
     <div class="role">Commercial Strategy & Payments</div>
 
-    <!-- Black Pill Save CTA -->
+    <!-- Industrial Orange Pill Save CTA -->
     <a id="save-vcard-btn" class="btn-save" href="#" download="Rukshatt_Venai.vcf">
       <span>Save Contact</span>
       <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
     </a>
 
-    <!-- Full-Width Linear Action Cards -->
+    <!-- Action Cards -->
     <div class="actions-list">
       
       <!-- Mobile Phone -->
@@ -325,50 +346,4 @@
       <a class="action-row" href="https://www.linkedin.com/in/rravin/" target="_blank" rel="noopener">
         <div class="action-left">
           <div class="action-icon">
-            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-          </div>
-          <div class="action-text">
-            <span class="action-title">LinkedIn</span>
-          </div>
-        </div>
-        <span class="action-arrow">›</span>
-      </a>
-
-    </div>
-
-    <div class="footer">NFC TAP ACTIVE</div>
-
-  </div>
-
-  <script>
-    /* Direct vCard Generator */
-    const contactData = {
-      firstName: "Rukshatt",
-      lastName: "Venai",
-      company: "Boost",
-      title: "Commercial Strategy & Payment Solutions",
-      phone: "+60182804899",
-      workEmail: "rukshatt.ravindran@myboost.co",
-      personalEmail: "rukshatt.v@outlook.com",
-      linkedin: "https://www.linkedin.com/in/rravin/"
-    };
-
-    const vcardContent = 
-`BEGIN:VCARD
-VERSION:3.0
-N:${contactData.lastName};${contactData.firstName};;;
-FN:${contactData.firstName} ${contactData.lastName}
-ORG:${contactData.company}
-TITLE:${contactData.title}
-TEL;TYPE=CELL,VOICE:${contactData.phone}
-EMAIL;TYPE=WORK,INTERNET:${contactData.workEmail}
-EMAIL;TYPE=HOME,INTERNET:${contactData.personalEmail}
-URL:${contactData.linkedin}
-END:VCARD`;
-
-    const blob = new Blob([vcardContent], { type: 'text/vcard;charset=utf-8;' });
-    const downloadLink = document.getElementById('save-vcard-btn');
-    downloadLink.href = URL.createObjectURL(blob);
-  </script>
-</body>
-</html>
+            <svg viewBox="0 0 24 24"><path d="M16
